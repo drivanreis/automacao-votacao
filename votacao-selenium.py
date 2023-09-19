@@ -7,13 +7,18 @@ import time
 
 # Inicializa o driver do Chrome
 driver = webdriver.Chrome()
+time.sleep(1)
 
 # Abre a URL desejada
 url = "https://www.monolitospost.com/2023/08/01/os-melhores-do-ano-2023-categoria-odontologia/"
 driver.get(url)
+time.sleep(1)
+# Verifica se a página foi carregada corretamente
+if "Erro" in driver.title:
+    raise Exception("A página não foi carregada corretamente.")
 
 # Esperar a pagina carregar
-time.sleep(3)
+time.sleep(2)
 
 try:
     # Encontra e clica no elemento HTML com XPath //*[@id="poll-answer-4332"]
@@ -21,7 +26,7 @@ try:
     element1.click()
 
     # tempo para o usuario perceber o cliqui
-    time.sleep(2)
+    time.sleep(1)
 
     # Encontra e clica no elemento HTML com XPath //*[@id="polls-559-ans"]/p[1]/input
     element2 = driver.find_element(By.XPATH, '//*[@id="polls-559-ans"]/p[1]/input')
@@ -32,7 +37,7 @@ try:
 
     
     # tempo para o usuario perceber o cliqui
-    time.sleep(2)
+    time.sleep(1)
 
     # tempo para o usuario ver o resultado da votação
     time.sleep(5)
@@ -42,7 +47,7 @@ try:
     element3.click()
 
     # tempo para o usuario perceber o cliqui
-    time.sleep(2)
+    time.sleep(1)
 
     # Encontra e clica no elemento HTML com XPath //*[@id="polls-559-ans"]/p[1]/input
     element4 = driver.find_element(By.XPATH, '//*[@id="polls-561-ans"]/p[1]/input')
@@ -52,7 +57,7 @@ try:
     element4.send_keys(Keys.ARROW_DOWN)
 
     # tempo para o usuario perceber o cliqui
-    time.sleep(2)
+    time.sleep(1)
 
     # tempo para o usuario ver o resultado da votação
     time.sleep(5)

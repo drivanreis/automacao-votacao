@@ -1,7 +1,13 @@
 import time
 import subprocess
 
+
 while True:
-    # subprocess.run(['python', 'votacao-pyautogui.py'])
-    subprocess.run(['python', 'votacao-selenium.py'])
-    time.sleep(125)
+    try:
+        subproc = subprocess.run(['python', 'votacao-selenium.py'])
+        time.sleep(25)
+    except Exception as e:
+        subproc.terminate()
+        print(f"Ocorreu um erro: {e}")
+    finally:
+        time.sleep(25)
